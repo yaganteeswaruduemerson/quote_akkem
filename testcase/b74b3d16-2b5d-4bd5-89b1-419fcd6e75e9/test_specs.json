@@ -1,0 +1,17 @@
+{
+  "name": "Resume RFQ Endpoint - Resume from Agent Run ID",
+  "description": "Validates the /rfq/resume endpoint resumes processing from a valid agent_run_id and completes the workflow.",
+  "test_type": "functional",
+  "input": "POST /rfq/resume with valid agent_run_id and pipeline_run_id, where the corresponding blob exists.",
+  "output": "JSON response with success: true, quote_number, output_blob_path, and success message.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is True",
+    "response contains 'quote_number' and 'output_blob_path'",
+    "response['message'] contains 'completed successfully'"
+  ],
+  "error_scenarios": [
+    "Blob for agent_run_id does not exist",
+    "Resume logic fails due to missing or corrupt data"
+  ]
+}
