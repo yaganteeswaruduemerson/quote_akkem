@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "Process RFQ Endpoint - Successful End-to-End Flow",
+    "description": "Test: Process RFQ Endpoint - Successful End-to-End Flow",
+    "type": "functional",
+    "status": "passed",
+    "duration": 0.0,
+    "error": null
+  }
+]
