@@ -1,0 +1,17 @@
+{
+  "name": "Process RFQ Endpoint - Input Validation Failure",
+  "description": "Validates that the /rfq/process endpoint returns a validation error when input_payload is missing or invalid.",
+  "test_type": "functional",
+  "input": "POST /rfq/process with missing input_payload and agent_run_id.",
+  "output": "JSON response with success: false, error_type: 'InputValidation', error_code: 'ERR_INPUT_MISSING', and appropriate message.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is False",
+    "response['error_type'] == 'InputValidation'",
+    "response['error_code'] == 'ERR_INPUT_MISSING'",
+    "response['message'] contains 'must be provided'"
+  ],
+  "error_scenarios": [
+    "None, this is a negative test for validation"
+  ]
+}
