@@ -1,0 +1,19 @@
+{
+  "name": "Process RFQ Endpoint - Successful End-to-End Flow",
+  "description": "Validates the /rfq/process endpoint for a complete, successful RFQ review and quote creation, including all business rule validations and output upload.",
+  "test_type": "functional",
+  "input": "POST /rfq/process with valid input_payload containing rfq_id, lines, TOTAL_TAX, and valid pipeline_run_id.",
+  "output": "JSON response with success: true, quote_number, output_blob_path, and success message.",
+  "success_criteria": [
+    "HTTP status code is 200",
+    "response['success'] is True",
+    "response contains 'quote_number' and 'output_blob_path'",
+    "response['message'] contains 'completed successfully'"
+  ],
+  "error_scenarios": [
+    "Blob upload fails",
+    "Quote creation fails",
+    "ATP check fails",
+    "Lead time, discount, or tax exempt validation fails"
+  ]
+}
