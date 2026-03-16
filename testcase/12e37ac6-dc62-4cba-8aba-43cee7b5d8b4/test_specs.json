@@ -1,0 +1,17 @@
+{
+  "name": "LLM Endpoint - Malformed JSON Request",
+  "description": "Validates that the /rfq/llm endpoint returns a proper error response when the request body is malformed JSON.",
+  "test_type": "functional",
+  "input": "POST /rfq/llm with invalid JSON body (e.g., missing closing brace).",
+  "output": "JSON response with success: false, error_type: 'MalformedJSON', error_code: 'ERR_JSON_PARSE', and appropriate message.",
+  "success_criteria": [
+    "HTTP status code is 400",
+    "response['success'] is False",
+    "response['error_type'] == 'MalformedJSON'",
+    "response['error_code'] == 'ERR_JSON_PARSE'",
+    "response['message'] contains 'Malformed JSON'"
+  ],
+  "error_scenarios": [
+    "None, this is a negative test for malformed input"
+  ]
+}
