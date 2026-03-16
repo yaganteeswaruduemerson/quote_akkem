@@ -1,0 +1,2 @@
+Test Code Sanitization Warnings:
+  - Found 5 localhost connections - these will be mocked
